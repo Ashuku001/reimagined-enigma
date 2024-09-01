@@ -32,7 +32,10 @@ class LangchainPgEmbeddingRepo:
             )
         
     async def get_similar(self, embedding):
-        return
+        return await LangChainPgEmbedding.raw(f"SELECT document, (embedding <=> '{embedding}' ) as cosine_distance \
+                                FROM langchain_pg_embedding \
+                                ORDER BY cosine_distance \
+                                LIMIT 5")
         
     
 class LangchainPgCollectionRepo:
