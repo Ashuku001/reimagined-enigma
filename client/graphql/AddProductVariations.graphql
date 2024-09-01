@@ -1,0 +1,30 @@
+mutation AddProdVariation($product: ProductInput) {
+  addProductVariations(product: $product) {
+    id
+    name
+    price
+    isArchived
+    isFeatured
+    brand{
+      id
+      name
+    }
+    description
+    stockCode
+    prodVariations {
+      name
+      prodVarOptions {
+        value
+      }
+    }
+    prodCombinations {
+      price
+      sku
+      combinationString
+      availableStock
+      variantImage {
+        link
+      }
+    }
+  }
+}

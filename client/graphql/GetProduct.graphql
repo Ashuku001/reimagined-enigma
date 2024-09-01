@@ -1,0 +1,46 @@
+query GetProduct($productId: Int!) {
+  product(productId: $productId) {
+    __typename
+    id
+    name
+    price
+    isArchived
+    isFeatured
+    stockCode
+    description
+    brand {
+      id
+      name
+    }
+    images {
+      __typename
+      id
+      url
+    }
+    store {
+      __typename
+      id
+      name
+    }
+    category {
+      __typename
+      id
+      name
+    }
+    prodVariations {
+      name
+      prodVarOptions {
+        value
+      }
+    }
+    prodCombinations {
+      price
+      sku
+      combinationString
+      availableStock
+      variantImage {
+        link
+      }
+    }
+  }
+}
